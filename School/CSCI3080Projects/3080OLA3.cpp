@@ -2,26 +2,29 @@
  *Author: William Hampton
  *Course: CSCI-3080-001
  *Lab Number: 3
- *Purpose: This program gets a n x n matrix from the user, and performs Gaussian elimination
- * 			to find the corresponding inverse matrix.
- *Due Date:2/1/2018
+ *Purpose: This program gets a nxn matrix from the user, and performs Gaussian elimination
+ * 			to find the identity matrix of the user's matrix.
+ *Due Date:3/1/2018
  */
  #include <iostream>
  using namespace std;
  
  int main()
 {
-	float arr[10][20]={0};	//holds values of the user's matrix, and its correspodending identity matrix
+	float arr[10][20]={0};		//holds values of the user's matrix, and its correspodending identity matrix
 	int dimensions;		//holds value of dimensions of matrix (square matrix)
-	float mainDiag scalar;	//*mainDiag* is divided from each element in a row i, 
-							//so that the element on the main diagonal equals 1
-							//*scalar* is multiplied by all elements in a row i ,and then all of the
-							//resulting products are subtracted from a row j != row i, with the goal
-							//of reducing at least one of the elements to 0
+	float mainDiag, scalar;		//*mainDiag* is divided from each element in a row i, 
+								//so that the element on the main diagonal equals 1
+								//*scalar* is multiplied by all elements in a row i ,and then all of the
+								//resulting products are subtracted from a row j != row i, with the goal
+								//of reducing at least one of the elements to 0
 	
 	//get dimensions of matrix from user. matrix is square
-	cout<<"Enter the dimensions of the matrix: "<<endl<<endl;
+	cout<<"This program calculates the inverse of up to a 10x10 square matrix"<<endl<<endl;
+	cout<<"Please enter the dimensions of the matrix: ";
 	cin>>dimensions;
+	cout<<endl;
+	cout<<"Please enter the elements of the matrix:"<<endl;
 	
 	//insert all user-entered elements into matrix
 	for (int i=0; i<dimensions; i++)
@@ -49,22 +52,25 @@
 	//that rows that lies on the main diagonal.
 	for (int i=0; i<dimensions;i++)
 	{
-		//here the divisor neccessary for arr[i][i] is defined outside the loop, so that 
-		//the element will remain the same for all divisions within the row
-		mainDiag=arr[i][i];
 		
+		//here the value of the element on the main diagonal is stored outside of the loop
+		//so that all elements of row i are divided by the same number
+		mainDiag=arr[i][i];
 		for (int n=0;n<dimensions;n++)
 		{
-			//if (n != i)
-			//{
 			arr[i][n]/=mainDiag;
 			arr[i][n+dimensions]/=mainDiag;
-			//}
+			 
 		}
+		
+		//all elements in row i are then subtracted from their corresponding elements in row j
+		//when row j != row i
 		for (int j=0;j<dimensions;j++)
 		{
 			if (j != i)
 			{
+				//once again, the value of the element i in row j is stored outside of the loop
+				//to ensure all elements k in row i are mulitplied by the same number
 				scalar=arr[j][i];
 				for (int k=0;k<dimensions*2;k++)
 				{
@@ -74,7 +80,9 @@
 		}
 	}
 	
-	cout<<"The inverse matrix is: "<<endl<<endl;
+	//output the resulting inverse matrix to the screen, I accounted for negatives here for formatting
+	cout<<endl;
+	cout<<"The inverse matrix is: "<<endl;
 	for (int i=0; i<dimensions; i++)
 	{
 		for (int j=dimensions; j<dimensions*2; j++)
