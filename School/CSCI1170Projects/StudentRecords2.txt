@@ -1,0 +1,12 @@
+Student1
+0.45
+Student2
+000
+Student3
+45
+Student4
+61
+Student5
+70
+Student6
+90.01
