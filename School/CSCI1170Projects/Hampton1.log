@@ -1,0 +1,81 @@
+Script started on Tue 12 Sep 2017 11:27:15 AM CDT
+$ cat -n ola1correction.py
+     1	###########################  Open Lab Assignment #1#############################
+     2	# FILE: ola1.py
+     3	# AUTHOR: William Hampton
+     4	# Instructor: Dr. Yoo
+     5	# COURSE:  CSCI 1170-005
+     6	# DATE Due: 9/11/2017
+     7	# DESCRIPTION: This program determines the average of three test scores.
+     8	# INPUT:  Three test scores -- test1(float), test2(float), and test3(float)
+     9	# OUTPUT: 1.  Purpose of the program.
+    10	#         2.  The average of the three scores -- average (float) with an
+    11	#             identifying message.
+    12	# Formulas:   average = (test1 + test2 + test3) / 3
+    13	################################################################################
+    14	
+    15	def main():
+    16	
+    17	    #1. Display the purpose of the program
+    18	    print("This program computes the average of three scores")
+    19	
+    20	    #2. Read in the three test scores
+    21	    #2.1 Get the first score from the user.
+    22	    test1 = int( input("Enter the first test score:  "))
+    23	
+    24	    print("You entered  ", test1)
+    25	
+    26	    #2.2 Get the second score from the user.
+    27	    test2 = int( input("Enter the second test score:  "))
+    28	
+    29	    print("You entered  ", test2)
+    30	
+    31	    #2.3 Get the third test score from the user.
+    32	    test3 = int( input("Enter the third test score:  "))
+    33	
+    34	    print("You entered  ", test3)
+    35	
+    36	    #3. Calculate the average of the test scores.
+    37	    average = (test1 + test2 + test3)/3
+    38	
+    39	    #4. Print the average with an identifying message.
+    40	    print("The average of the three scores is:  ", average)
+    41	    print("")
+    42	
+    43	#Call the main function.
+    44	main()
+    45	    
+$ pytohh[K[K[Khon3 ola1core[Krection.py
+This program computes the average of three scores
+Enter the first test score:  78
+You entered   78
+Enter the second test score:  100
+You entered   100
+Enter the third test score:  97
+You entered   97
+The average of the three scores is:   91.66666666666667
+
+$ python3 ola1correction.py
+This program computes the average of three scores
+Enter the first test score:  89
+You entered   89
+Enter the second test score:  68
+You entered   68
+Enter the third test score:  98
+You entered   98
+The average of the three scores is:   85.0
+
+$ pythone[K3 ola1correction.py
+This program computes the average of three scores
+Enter the first test score:  69
+You entered   69
+Enter the second test score:  54
+You entered   54
+Enter the third test score:  87
+You entered   87
+The average of the three scores is:   70.0
+
+$ exit
+exit
+
+Script done on Tue 12 Sep 2017 11:28:46 AM CDT

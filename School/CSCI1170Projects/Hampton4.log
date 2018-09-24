@@ -1,0 +1,308 @@
+Script started on Wed 25 Oct 2017 03:51:05 PM CDT
+$ cat -n OLA4.py
+     1	##################################################################################################################
+     2	# File: OLA4.py
+     3	# Author: William Hampton
+     4	# Instructor: Dr. Yoo
+     5	# Course: CSCI 1170-005
+     6	# Date Due: 10/24
+     7	# Description: This program takes the user's currency amount, and converts it between different currencies.
+     8	# Input: Amount -- amntU2E, amntE2U, etc.
+     9	# Output: 1. Purpose of the program.
+    10	#         2. Converted amount.
+    11	# Formulas: currency conversion rate. eg: Euros = USD*0.84
+    12	##################################################################################################################
+    13	
+    14	
+    15	
+    16	# Define a void function to print the menu
+    17	def print_menu():
+    18	    print("This program converts USD to international currencies.")
+    19	    print("")
+    20	    print("Legend:")
+    21	    print("USD = United States Dollars\nEUR = Euros\nCAD = Canadian Dollars\nGBP = Great British Pounds\nCNY = Chinese Yuan")
+    22	    print("")
+    23	    print("Please choose from the following menu.")
+    24	    print("---------------------------------\n---------------------------------")
+    25	    print("1: Convert between USD and EUR.\n2: Convert between USD and CAD.\n3: Convert between USD and GBP.\n4: Convert between USD and CNY.\n5: Quit.")
+    26	    print("---------------------------------\n---------------------------------")
+    27	    print("")
+    28	
+    29	# Define a function to convert user's amount to the desired currency
+    30	
+    31	def currency_converter():
+    32	    
+    33	    # Input and conversion for EUR
+    34	    
+    35	    chce2 = int(input("Would you like to convert (1)from or (2)to USD? "))
+    36	    while chce2 < 1 or chce2 > 2:
+    37	        print(chce2,"is an invalid choice. Please enter either 1 or 2.")
+    38	        chce2 = int(input("Would you like to convert (1) from or (2)to USD? "))
+    39	    if chce1 is 1:
+    40	        if chce2 is(1):
+    41	            amntU2E = float(input("Enter the amount in USD: "))
+    42	            print("$",amntU2E," is ",format(0.84*amntU2E, ".2f"),"euros .")
+    43	            print("")
+    44	            main()
+    45	        elif chce2 is(2):
+    46	            amntE2U = float(input("Enter the amount in euros: "))
+    47	            print(amntE2U,"euros is $",format(amntE2U/0.84, ".2f"),".")
+    48	            print("")
+    49	            main()
+    50	     
+    51	            
+    52	    # Input and conversion for CAD
+    53	    
+    54	    elif chce1 is 2:
+    55	        if chce2 is(1):
+    56	            amntU2C = float(input("Enter the amount in USD: "))
+    57	            print("$",amntU2C," is ",format(1.25*amntU2C, ".2f"),"CAD .")
+    58	            print("")
+    59	            main()
+    60	        elif chce2 is(2):
+    61	            amntC2U = float(input("Enter the amount in CAD: "))
+    62	            print(amntC2U,"CAD is $",format(amntC2U/1.25, ".2f"),".")
+    63	            print("")
+    64	            main()
+    65	       
+    66	            
+    67	    # Input and conversion for GBP
+    68	    
+    69	    elif chce1 is 3:
+    70	        if chce2 is(1):
+    71	            amntU2G = float(input("Enter the amount in USD: "))
+    72	            print("$",amntU2G," is ",format(0.75*amntU2G, ".2f"),"GBP .")
+    73	            print("")
+    74	            main()
+    75	        elif chce2 is(2):
+    76	            amntG2U = float(input("Enter the amount in GBP: "))
+    77	            print(amntG2U,"GBP is $",format(amntG2U/0.75, ".2f"),".")
+    78	            print("")
+    79	            main()
+    80	            
+    81	    # Input and conversion for CNY
+    82	    
+    83	    elif chce1 is 4:
+    84	        if chce2 is(1):
+    85	            amntU2Y = float(input("Enter the amount in USD: "))
+    86	            print("$",amntU2Y," is ",format(6.59*amntU2Y, ".2f"),"Yuan .")
+    87	            print("")
+    88	            main()
+    89	            
+    90	        elif chce2 is(2):
+    91	            amntY2U = float(input("Enter the amount in CNY: "))
+    92	            print(amntY2U,"Yuan is $",format(amntY2U/6.59, ".2f"),".")
+    93	            print("")
+    94	            main()
+    95	        
+    96	
+    97	# Define a main function, which calls the converter and menu functions.
+    98	
+    99	def main():
+   100	    
+   101	    print_menu()
+   102	    
+   103	    # Set variable "chce1" as global, so that the user's input for "chce1" can be used in the currency converter function
+   104	    
+   105	    global chce1
+   106	    chce1 = int(input("Enter your choice: "))
+   107	    
+   108	    # This loop controls when the program stops
+   109	    
+   110	    while(chce1 != 5):
+   111	        if chce1 is 1 or chce1 is 2 or chce1 is 3 or chce1 is 4:
+   112	            currency_converter()
+   113	        else:
+   114	            print(chce1,"is an invalid choice.")
+   115	            print("Please Choose from the menu.")
+   116	            print("")
+   117	            main()
+   118	main()
+   119	                
+   120	                
+   121	        
+   122	    
+   123	
+   124	
+   125	    
+   126	    
+   127	        
+$ python3. [K[K OLA4.py
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 7
+7 is an invalid choice.
+Please Choose from the menu.
+
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 1
+Would you like to convert (1)from or (2)to USD? 2
+Enter the amount in euros: 100
+100.0 euros is $ 119.05 .
+
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 2
+Would you like to convert (1)from or (2)to USD? 1
+Enter the amount in USD: 100
+$ 100.0  is  125.00 CAD .
+
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 2
+Would you like to convert (1)from or (2)to USD? 2
+Enter the amount in CAD: 100
+100.0 CAD is $ 80.00 .
+
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 3
+Would you like to convert (1)from or (2)to USD? 5
+5 is an invalid choice. Please enter either 1 or 2.
+Would you like to convert (1) from or (2)to USD? 4
+4 is an invalid choice. Please enter either 1 or 2.
+Would you like to convert (1) from or (2)to USD? 1
+Enter the amount in USD: 200
+$ 200.0  is  150.00 GBP .
+
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 4
+Would you like to convert (1)from or (2)to USD? 2
+Enter the amount in CNY: 1000
+1000.0 Yuan is $ 151.75 .
+
+This program converts USD to international currencies.
+
+Legend:
+USD = United States Dollars
+EUR = Euros
+CAD = Canadian Dollars
+GBP = Great British Pounds
+CNY = Chinese Yuan
+
+Please choose from the following menu.
+---------------------------------
+---------------------------------
+1: Convert between USD and EUR.
+2: Convert between USD and CAD.
+3: Convert between USD and GBP.
+4: Convert between USD and CNY.
+5: Quit.
+---------------------------------
+---------------------------------
+
+Enter your choice: 5
+$ exit
+exit
+
+Script done on Wed 25 Oct 2017 03:52:39 PM CDT

@@ -1,0 +1,43 @@
+Script started on Tue 12 Sep 2017 03:20:26 PM CDT
+$ pwe[Kd
+/nfshome/c8088409
+$ ls -l
+total 40
+drwx--x--x 2 c8088409 students 4096 Aug 29 14:32 bin
+drwx------ 2 c8088409 students 4096 Sep 12 15:17 CLA
+-rw------- 1 c8088409 students 1130 Aug 31 14:39 cla2a.cc
+drwx--x--x 2 c8088409 students 4096 Aug 29 14:32 Desktop
+-rw------- 1 c8088409 students    0 Sep 12 15:20 Hampton4p1.log
+-rw------- 1 c8088409 students 1242 Sep  7 14:56 HamptonCLA3.log
+drwx------ 2 c8088409 students 4096 Sep  9 15:49 OLA
+-rw------- 1 c8088409 students 3334 Sep  8 12:12 ola1.py
+-rw------- 1 c8088409 students  254 Sep  7 14:54 prog1.py
+drwxr-xr-x 2 c8088409 students 4096 Aug 28 21:23 public_html
+drwx------ 3 c8088409 students 4096 Sep  5 15:15 unixstuff
+$ cat -m[Kn exercise4p1.py
+cat: exercise4p1.py: No such file or directory
+$ cd CLA
+$ cat -n exercis2[Ke4p1.py
+     1	# File name: exercise4p1.py
+     2	# Name: William Hampton
+     3	# Instructor: Dr. Yoo
+     4	# Purpose: Describes students name, class number and student classification.
+     5	
+     6	
+     7	
+     8	
+     9	def main():
+    10	    print("Welcome to 1170 section 005")
+    11	    
+    12	    print("My name is William Hampton")
+    13	          
+    14	    print("My major is Computer Science.")
+    15	
+    16	    print("I am a sophomore.")
+    17	
+    18	main()
+    19	          
+$ exit
+exit
+
+Script done on Tue 12 Sep 2017 03:22:31 PM CDT

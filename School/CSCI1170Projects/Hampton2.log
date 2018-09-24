@@ -1,0 +1,66 @@
+Script started on Tue 19 Sep 2017 09:05:01 AM CDT
+$ cat -n ola2.py
+     1	############################# OLA 2 ###########################################
+     2	# File: ola2.py
+     3	# Author: William Hampton
+     4	# Instructor: Dr. Yoo
+     5	# Class: CSCI 1170 - 005
+     6	# Date: 09/17/2017
+     7	# Purpose: This program converts the users temperatures, first from Farenheit to
+     8	# Celsius, and then from Celsius to Farenheit.
+     9	###############################################################################
+    10	
+    11	def main():
+    12	    # Dispay the name of the program, and skip line.
+    13	    print("Welcome to the Temperature Converter")
+    14	    print("")
+    15	
+    16	    # Get the users temperature, in Farenheit. 
+    17	    tempF = float(input("Enter the temperature in Farenheit: "))
+    18	    # Convert the users temperature to Celsius, and display the result, rounded
+    19	    # to two decimal places. Skip a line.
+    20	    print("In Celsius that would be ", format((tempF-32)*(5/9),'.2f'),"degrees");
+    21	    print("")
+    22	
+    23	    # Get the users temperature, in Celsius.
+    24	    tempC = float(input("Enter the temperature in Celsius: "))
+    25	    # Convert the users temperature to Farenheit, and display the result, rounded
+    26	    # to two decimal places.
+    27	    print("In Farenheit that would be ", format((32+(9/5)*tempC),'.2f'),"degrees")
+    28	
+    29	main()
+    30	          
+    31	
+    32	
+    33	                  
+    34	                
+    35	                  
+    36	    
+$ python3 ola2.py
+Welcome to the Temperature Converter
+
+Enter the temperature in Farenheit: 56
+In Celsius that would be  13.33 degrees
+
+Enter the temperature in Celsius: 7
+In Farenheit that would be  44.60 degrees
+$ python3 ola3[K2.py
+Welcome to the Temperature Converter
+
+Enter the temperature in Farenheit: 54
+In Celsius that would be  12.22 degrees
+
+Enter the temperature in Celsius: 8
+In Farenheit that would be  46.40 degrees
+$ pytoh[K[Khoon[K[K3[K3[Kn3 ola2.py
+Welcome to the Temperature Converter
+
+Enter the temperature in Farenheit: 86
+In Celsius that would be  30.00 degrees
+
+Enter the temperature in Celsius: 8 34
+In Farenheit that would be  93.20 degrees
+$ ei[Kxit
+exit
+
+Script done on Tue 19 Sep 2017 09:05:50 AM CDT

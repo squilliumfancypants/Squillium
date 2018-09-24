@@ -1,0 +1,171 @@
+Script started on Tue 14 Nov 2017 10:05:44 AM CST
+$ ls
+Hampton1.log	 Hamptonola5.log    ola3section5.py  StudentRecords2.txt
+Hampton2.log	 ola1correction.py  OLA4.py	     StudentRecords.txt
+Hampton4.log	 ola1.py	    ola5.py	     typescript
+HamptonOLA3.log  ola2.py	    olatest.py
+$ cat -n ola5py[K[K.py
+     1	################################################################################
+     2	# File: ola4.py
+     3	# Author: William Hampton
+     4	# Instructor: Dr. Yoo
+     5	# Course: CSCII 1170-005
+     6	# Date Due: 11/13
+     7	# Description:This program calculates student scores, their
+     8	#             corresponding grade, and displays these, along
+     9	#             with the student the highest score.
+    10	# Input: users file
+    11	# Output: 1.Purpose of the program,
+    12	#           students grades, score,
+    13	#           and highest score
+    14	################################################################################
+    15	
+    16	
+    17	# Get user's file
+    18	
+    19	def main():
+    20	    print('This program calculates student scores, their')
+    21	    print('corresponding grade, and displays these, along')
+    22	    print('with the student the highest score.')
+    23	    print()
+    24	    record_cnt=1
+    25	    file=input('Enter a file name: ')
+    26	    
+    27	# Read the first two line's of user's file.
+    28	
+    29	    try:
+    30	        infile=open(file,'r')
+    31	    except FileNotFoundError:
+    32	        print("Error. There is no file named '",file,"' or '",file,"' is located in a different directory.",sep='')
+    33	        file=input("Enter a file name: ")
+    34	        infile=open(file,'r')
+    35	    print()
+    36	    print('User ID \t Score \t Grade')
+    37	    print()
+    38	    
+    39	# Convert the second line into a number, assign a grade
+    40	
+    41	    top_name=infile.readline()
+    42	    top_score_string=infile.readline()
+    43	    top_score_string.rstrip('\n')
+    44	    top_score=float(top_score_string)
+    45	    if top_score>=90:
+    46	        top_grade='A'
+    47	    elif top_score<90 and top_score>=80:
+    48	        top_grade='B'
+    49	    elif top_score<80 and top_score>=70:
+    50	        top_grade='C'
+    51	    elif top_score<70 and top_score>=60:
+    52	        top_grade='D'
+    53	    else:
+    54	        top_grade='F'
+    55	        
+    56	# Print first line, and then use for loops to read the rest of the score.
+    57	
+    58	    print(top_name.rstrip('\n'),'\t',format(top_score,'0.1f'),'\t',top_grade)
+    59	    for line in infile:
+    60	        record_cnt+=1
+    61	        string_score=infile.readline()
+    62	        string_score.rstrip('\n')
+    63	        
+    64	# Break out of loop if EOP is reached
+    65	
+    66	        if string_score=='':
+    67	            break
+    68	        score=float(string_score)    
+    69	        if score>top_score:
+    70	            top_score=score
+    71	            top_name=line
+    72	            
+    73	# Assign top score and grades, print
+    74	
+    75	        if score>=90:
+    76	            grade='A'
+    77	        elif score<90 and score>=80:
+    78	            grade='B'
+    79	        elif score<80 and score>=70:
+    80	            grade='C'
+    81	        elif score<70 and score>=60:
+    82	            grade='D'
+    83	        else:
+    84	            grade='F'
+    85	        print(line.rstrip('\n'),'\t',format(score,'0.1f'),'\t',grade)
+    86	    print()
+    87	    print('There are',record_cnt,'records')
+    88	    print()
+    89	    print(top_name.rstrip('\n'),'has the highest score of',format(top_score,'0.1f'))
+    90	
+    91	
+    92	main()
+    93	    
+    94	    
+    95	        
+$ python3 ola5.py
+This program calculates student scores, their
+corresponding grade, and displays these, along
+with the student the highest score.
+
+Enter a file name: s StudentRed cords.txt
+
+User ID 	 Score 	 Grade
+
+c1004400 	 91.5 	 A
+c1004401 	 83.0 	 B
+c1004402 	 96.0 	 A
+c1004403 	 63.5 	 D
+c1004404 	 82.0 	 B
+c1004406 	 78.0 	 C
+c1004407 	 95.0 	 A
+c1004410 	 95.0 	 A
+
+There are 8 records
+
+c1004402 has the highest score of 96.0
+$ python4 [K[K3 ola5.py
+This program calculates student scores, their
+corresponding grade, and displays these, along
+with the student the highest score.
+
+Enter a file name: StudentRecords.  x s2.txt
+
+User ID 	 Score 	 Grade
+
+Student1 	 0.5 	 F
+Student2 	 0.0 	 F
+Student3 	 45.0 	 F
+Student4 	 61.0 	 D
+Student5 	 70.0 	 C
+Student6 	 90.0 	 A
+
+There are 6 records
+
+Student6 has the highest score of 90.0
+$ python3 file
+python3: can't open file 'file': [Errno 2] No such file or directory
+$ python3 ola5.py
+This program calculates student scores, their
+corresponding grade, and displays these, along
+with the student the highest score.
+
+Enter a file name: file
+Error. There is no file named 'file' or 'file' is located in a different directory.
+Enter a file name: StudentRecore ds.txt
+
+User ID 	 Score 	 Grade
+
+c1004400 	 91.5 	 A
+c1004401 	 83.0 	 B
+c1004402 	 96.0 	 A
+c1004403 	 63.5 	 D
+c1004404 	 82.0 	 B
+c1004406 	 78.0 	 C
+c1004407 	 95.0 	 A
+c1004410 	 95.0 	 A
+
+There are 8 records
+
+c1004402 has the highest score of 96.0
+$ exit
+exit
+
+Script done on Tue 14 Nov 2017 10:09:36 AM CST

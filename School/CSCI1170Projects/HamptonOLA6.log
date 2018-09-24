@@ -1,0 +1,219 @@
+Script started on Fri 01 Dec 2017 04:20:45 AM CST
+$ -[Kcat -n [K[K[K[K[K[K[Kpwd
+/nfshome/c8088409/OLA
+$ ls
+data1.txt	 Hamptonola5.log    OLA4.py		 StudentRecords.txt
+data2.txt	 HamptonOLA6.log    ola5.py		 test.py
+Hampton1.log	 ola1correction.py  OLA6(2).py		 typescript
+Hampton2.log	 ola1.py	    OLA6.py
+Hampton4.log	 ola2.py	    olatest.py
+HamptonOLA3.log  ola3section5.py    StudentRecords2.txt
+$ cat -n OLA6.py
+     1	#######################################################################################
+     2	# Author: William Hampton                                                           
+     3	# Professor: Dr. Yoo
+     4	# Program name: OLA6.py
+     5	# Date: 11/23/2017
+     6	# Class: CSCI 1170-005
+     7	# Purpose:  This program gets a file containing names and answers, and
+     8	#           grades the answers.Also calculates the class average.
+     9	# Program Input: the user inputs an exisiting file, if file does not exist, exception
+    10	#                is handled
+    11	# Program Output: program prints the key, IDs, answers, numerical score,
+    12	#                 standing based on average, class average, and top student along
+    13	#                 their score
+    14	# Formulas: 1. average= the sum of the classes grades, divided by the total number
+    15	#              of students (total/stuCount)
+    16	#           2. grade= the students score divided by the number of questions
+    17	#######################################################################################
+    18	
+    19	
+    20	#1-define the main function
+    21	
+    22	def main():
+    23	    file=input('Enter a file: ')
+    24	    #1.1-the try/except suite below prints a custom error message if file is not found
+    25	    try:
+    26	        infile=open(file,'r')
+    27	    except FileNotFoundError:
+    28	        print('The file',file,'does not exist. Please enter another file.')
+    29	        #1.2-return user back to main function if the file doesn't exist
+    30	        main()
+    31	        return
+    32	    #1.3-read the first line into the variable 'key'
+    33	    key=infile.readline()
+    34	    #1.4-prime the variable stuCount
+    35	    #1.5-create lists for student scores, IDs, and answers
+    36	    stuCount=0
+    37	    score_list=[]
+    38	    ID_list=[]
+    39	    Answers_list=[]
+    40	    #1.6-read each line, removing white space and end of line characters
+    41	    for line in infile:
+    42	        line.strip()
+    43	        #1.7-increment stuCount 1 for each record
+    44	        stuCount+=1
+    45	        #1.7.1-slice the begining of the line into a string containing the record's ID
+    46	        ID=line[0:9]
+    47	        #1.7.2-append the string ID to the list ID_list
+    48	        ID_list.append(ID.strip())
+    49	        #1.7.3-slice and append the end of the line to the list Answers_list
+    50	        Answers=line[9:-1]
+    51	        Answers_list.append(Answers)
+    52	        #1.7.4-call the GradeMC function with the arguments 'Answers' and 'key'
+    53	        score=GradeMC(Answers, key)
+    54	        score_list.append(score)
+    55	    #1.8-close the file
+    56	    infile.close()
+    57	    #1.8.1-call the ClassAv function, to get the class average
+    58	    average=ClassAv(score_list,stuCount)
+    59	    #1.8.2-call the StudentStanding funtion, to get a list of the students standings
+    60	    standing_list=StudentStanding(score_list, average)
+    61	    #1.8.3-call the BestStudent function, to determine the student with the best score, and their score
+    62	    topStudent=BestStudent(ID_list,score_list)
+    63	    #1.8.4-print the key
+    64	    print('Key: ',key.strip(),'\t There are',len(key)-1,'problems')
+    65	    print()
+    66	    #1.8.5-print a heading for the calculated outputs
+    67	    print('ID \t\t Answers \t\t Score \t Standing')
+    68	    print()
+    69	    #1.8.6-print the outputs of each function, 1 record at a time
+    70	    for x in range(stuCount):
+    71	        print(ID_list[x],'\t',Answers_list[x],'\t',score_list[x],'\t',standing_list[x])
+    72	    print()
+    73	    #1.8.7-print the class average, formatted to 1 decimal place
+    74	    print('The average class average was',format(average,'.1f'))
+    75	    #1.8.8-print the number of records in the file
+    76	    print('There are',stuCount,'records in the file')
+    77	    #1.8.9-print the student ID with the highest score, and their score
+    78	    print('The student with the highest score was: ',topStudent[0],'with a score of',topStudent[1])
+    79	    
+    80	#3-define the ClassAv function
+    81	#3.1-ClassAv purpose: this function accepts two arguments, and returns the Classes average score
+    82	#3.1.2-ClassAv parameters: the parameter here is the variable average. it is calculated by dividing
+    83	#                        the variable element refrenced by the index of score_list, score_list[i]
+    84	#                        into the sum of the indiviual scores
+    85	#3.1.3-ClassAv pre-condition: one non-empty list, score_list, and a non-empty integer variable, stuCount
+    86	#3.1.4-GradeMC post-condition: returns the variable average
+    87	
+    88	def ClassAv(score_list,stuCount):
+    89	    #3.2.1-prime the variable 'total'
+    90	    total=0
+    91	    #3.2.3-use a for loop to add the scores from score_list
+    92	    for i in range(len(score_list)):
+    93	        total+=score_list[i]
+    94	    #3.2.4-calculate and return average to the calling function
+    95	    average=total/stuCount
+    96	    return average
+    97	
+    98	#2-define the GradeMC function
+    99	#2.1-GradeMC purpose: this function accepts two arguments, and returns the score associated with the ID
+   100	#2.1.2-GradeMC parameters: the parameter here is the variable score. It is increased if the argument
+   101	#    Answers matches the argument key
+   102	#2.1.3-GradeMC pre-condition: two non-empty variables, Answers and key
+   103	#2.1.4-GradeMC post-condition: returns the variable score
+   104	
+   105	def GradeMC(Answers,key):
+   106	    #2.2.1-prime the variable 'score' to 0
+   107	    score=0
+   108	    #2.2.2-use a for loop to calculate score. if indexed Answers match indexed key, add 1 to score
+   109	    for i in range(len(key)-1):
+   110	        if Answers[i]==key[i]:
+   111	            score+=1
+   112	    #2.2.3-return score to the calling function
+   113	    return score
+   114	
+   115	#4-define the StudentStanding function
+   116	#4.1-StudentStanding purpose: this function accepts two arguments, and returns the students standing
+   117	#                             compared to the class average
+   118	#4.1.2-StudentStanding parameters: the parameter here is the variable standing. standing is
+   119	#                                is checked against several predefined intervals in order to
+   120	#                                determine whether the student is above or below average
+   121	#4.1.3-StudentStanding pre-condition: one non-empty list, score_list, and a non-empty variable,average
+   122	#4.1.4-StudentStanding post-condition: returns the variable standing
+   123	
+   124	def StudentStanding(score_list, average):
+   125	    #4.2.1-create a list called standing_list
+   126	    standing_list=[]
+   127	    #4.2.2-used a loop to find standing and append to list
+   128	    for i in range(len(score_list)):
+   129	        if score_list[i]>average:
+   130	            standing='above average'
+   131	            standing_list.append(standing)
+   132	        elif score_list[i]<average:
+   133	            standing='below average'
+   134	            standing_list.append(standing)
+   135	        else:
+   136	            standing='average'
+   137	            standing_list.append(standing)
+   138	    #4.2.3-return standing_list to the calling function
+   139	    return standing_list
+   140	
+   141	#5-define the BestStudent function
+   142	#5.1.1-BestStudent purpose: this function accepts two arguments, and returns the highest ID score, as well as
+   143	#                         the associated ID
+   144	#5.1.2-BestStudent parameters: the parameter here are the variables topStudent and topScore, and the
+   145	#                            list topStudent_list
+   146	#5.1.3-BestStudent pre-condition: two non-empty list, ID_list, which contains strings, and score_list,
+   147	#                               which contains integer values
+   148	#5.1.4-BestStudent post-condition: returns the list topStudent_list
+   149	
+   150	def BestStudent(ID_list,score_list):
+   151	    #5.2.1-create two variables, topStudent and topScore. prime them as the first ID and score from the file
+   152	    topStudent=ID_list[0]
+   153	    topScore=score_list[0]
+   154	    #5.2.2-use a for loop to find the topStudent and the topScore
+   155	    for i in range(len(ID_list)):
+   156	        currentscore=score_list[i]
+   157	        if score_list[i]>topScore:
+   158	            topScore=currentscore
+   159	            topStudent=ID_list[i]
+   160	    #5.2.3-create a list called topStudent_list
+   161	    topStudent_list=[]
+   162	    #5.2.4-append topStudent and topScore to the topStudent_list
+   163	    topStudent_list.append(topStudent)
+   164	    topStudent_list.append(topScore)
+   165	    #5.2.5-return the topStudent_list to the calling function
+   166	    return topStudent_list
+   167	
+   168	#6-call the main function
+   169	
+   170	main()
+   171	        
+   172	            
+$ cat -n data1.txt
+     1	abcdefabcdefabcdefab
+     2	c1234565 abcdefabcdefabcdefaa
+     3	c1234564 bccdefabcdefabcdefcc
+     4	c1234563 bcdefaabcdefabcdefca
+     5	c1234562 abcdefabcdefabcdxxab
+     6	c1234566 aaaaaaaaaaaaaaaaaaaa
+     7	c1234567 abcdefabcdefabcdefab
+     8	c1234561 abababababababababab
+$ python3 OLA6.py
+Enter a file: assdf     wrongfile.txt
+The file wrongfile.txt does not exist. Please enter another file.
+Enter a file: anotherwrongfiel  le
+The file anotherwrongfile does not exist. Please enter another file.
+Enter a file: data
+The file data does not exist. Please enter another file.
+Enter a file: data1.txt
+Key:  abcdefabcdefabcdefab 	 There are 20 problems
+
+ID 		 Answers 		 Score 	 Standing
+
+c1234565 	 abcdefabcdefabcdefaa 	 19 	 above average
+c1234564 	 bccdefabcdefabcdefcc 	 16 	 above average
+c1234563 	 bcdefaabcdefabcdefca 	 12 	 below average
+c1234562 	 abcdefabcdefabcdxxab 	 18 	 above average
+c1234566 	 aaaaaaaaaaaaaaaaaaaa 	 4 	 below average
+c1234567 	 abcdefabcdefabcdefab 	 20 	 above average
+c1234561 	 abababababababababab 	 8 	 below average
+
+The average class average was 13.9
+There are 7 records in the file
+The student with the highest score was:  c1234567 with a score of 20
+$ exit
+exit
+
+Script done on Fri 01 Dec 2017 04:22:11 AM CST

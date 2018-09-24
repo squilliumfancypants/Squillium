@@ -1,0 +1,119 @@
+Script started on Tue 26 Sep 2017 03:53:50 PM CDT
+$ pwe[Kd
+/nfshome/c8088409
+$ ls -l exercise [K7p4[K3.py
+ls: cannot access exercise7p3.py: No such file or directory
+$ ls[K[Kcd CLA
+$ ls -l exercisl[Ke7p3.py
+-rw------- 1 c8088409 students 298 Sep 26 15:05 exercise7p3.py
+$ cat -n [K exercise7p3.py
+     1	def main():
+     2	    score = int(input("What is your score? "))
+     3	    if(score >= 0 and score <=100):
+     4	            print(score, " is a valid number.")
+     5	
+     6	    else:
+     7	        print(score, " is an invalid number.")
+     8	        print("The number should be between 0 and 100 inclusive.")
+     9	
+    10	main()
+    11	        
+    12	            
+$ python3 exercise [K7p3.py
+What is your score? 6 74 5
+75  is a valid number.
+$ python3.[K 3[Kexercise7p3.py 
+What is your score? -0 10
+-10  is an invalid number.
+The number should be between 0 and 100 inclusive.
+$ python3 exercise7p3.py
+What is your score? 100
+100  is a valid number.
+$ python3 e3xe[K[K[Kxercise7p3.py
+What is your score? 110
+110  is an invalid number.
+The number should be between 0 and 100 inclusive.
+$ 
+$ 
+$ cat -n esxer[K[K[K[Kxercise [K7p5.py
+     1	def main():
+     2	
+     3	    score = int(input("What is your score? "))
+     4	    if(score >= 0 and score <=100):
+     5	            if(score >= 73):
+     6	                print(score, " is good.")
+     7	            else:
+     8	                 if(score >= 60):
+     9	                     print(score, " is pass.")
+    10	                 else:
+    11	                     print(score, " is fail.")
+    12	            
+    13	    else: 
+    14	        print(score, " is an invalid number.")
+    15	        print("The number should be between 0 and 100 inclusive.")
+    16	
+    17	main()
+    18	        
+    19	            
+$ python3ex[K[K exercise7p5.py
+What is your score? 60
+60  is pass.
+$ python3 exercise7p5.py
+What is your score? -1
+-1  is an invalid number.
+The number should be between 0 and 100 inclusive.
+$ python3 exercise5[K7p5.py
+What is your score? 100
+100  is good.
+$ python3 exercise7p5,.[K[K.py
+What is your score? 110
+110  is an invalid number.
+The number should be between 0 and 100 inclusive.
+$ python3 exercise7p5.py
+What is your score? 3 45
+45  is fail.
+$ 
+$ 
+$ cat -n exercise7p7.py
+     1	def main():
+     2	
+     3	    score = int(input("What is your score? "))
+     4	    if(score >= 0 and score <=100):
+     5	        if(score >= 73):
+     6	            print(score, " is good.")
+     7	
+     8	        elif(score >= 60):
+     9	            print(score, " is Pass.")
+    10	
+    11	        else:
+    12	            print(score, " is fail.")
+    13	                
+    14	    else: 
+    15	        print(score, " is an invalid number.")
+    16	        print("The number should be between 0 and 100 inclusive.")
+    17	
+    18	main()
+    19	        
+    20	            
+$ python3 exers[Kcise7p7.py
+What is your score? 60
+60  is Pass.
+$ pty[K[Kython3 exercsie[K[K[Kise7p7.py
+What is your score? -10
+-10  is an invalid number.
+The number should be between 0 and 100 inclusive.
+$ python3 exercise7p7.py
+What is your score? 100
+100  is good.
+$ python3 exercise7p7.py
+What is your score? 110
+110  is an invalid number.
+The number should be between 0 and 100 inclusive.
+$ python3 exercise7p67[K[K7.py
+What is your score? 45
+45  is fail.
+$ 
+$ exit
+exit
+
+Script done on Tue 26 Sep 2017 04:00:16 PM CDT

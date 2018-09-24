@@ -1,0 +1,45 @@
+###########################  Open Lab Assignment #1#############################
+# FILE: ola1.py
+# AUTHOR: William Hampton
+# Instructor: Dr. Yoo
+# COURSE:  CSCI 1170-005
+# DATE Due: 9/11/2017
+# DESCRIPTION: This program determines the average of three test scores.
+# INPUT:  Three test scores -- test1(float), test2(float), and test3(float)
+# OUTPUT: 1.  Purpose of the program.
+#         2.  The average of the three scores -- average (float) with an
+#             identifying message.
+# Formulas:   average = (test1 + test2 + test3) / 3
+################################################################################
+
+def main():
+
+    #1. Display the purpose of the program
+    print("This program computes the average of three scores")
+
+    #2. Read in the three test scores
+    #2.1 Get the first score from the user.
+    test1 = int( input("Enter the first test score:  "))
+
+    print("You entered  ", test1)
+
+    #2.2 Get the second score from the user.
+    test2 = int( input("Enter the second test score:  "))
+
+    print("You entered  ", test2)
+
+    #2.3 Get the third test score from the user.
+    test3 = int( input("Enter the third test score:  "))
+
+    print("You entered  ", test3)
+
+    #3. Calculate the average of the test scores.
+    average = (test1 + test2 + test3)/3
+
+    #4. Print the average with an identifying message.
+    print("The average of the three scores is:  ", average)
+    print("")
+
+#Call the main function.
+main()
+    

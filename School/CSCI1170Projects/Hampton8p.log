@@ -1,0 +1,94 @@
+Script started on Thu 05 Oct 2017 02:57:11 PM CDT
+$ pwd
+/nfshome/c8088409
+$ cd CLA[K[K[K[K[K[Kls -l
+total 48
+-rw------- 1 c8088409 students  454 Sep 21 15:22 5p6part2.py
+-rw------- 1 c8088409 students  473 Sep 14 16:08 5p8.py
+drwx--x--x 2 c8088409 students 4096 Aug 29 14:32 bin
+drwx------ 2 c8088409 students 4096 Sep 26 15:36 CLA
+-rw------- 1 c8088409 students  627 Oct  5 14:48 cla5p8.py
+drwx--x--x 2 c8088409 students 4096 Aug 29 14:32 Desktop
+-rw------- 1 c8088409 students  280 Oct  5 14:30 exercise8p1.py
+-rw------- 1 c8088409 students 1439 Sep 12 15:22 Hampton4p1.log
+-rw------- 1 c8088409 students    0 Sep 14 16:07 Hampton5p8.log
+-rw------- 1 c8088409 students 3564 Sep 26 15:59 Hampton7p9.log
+-rw------- 1 c8088409 students    0 Oct  5 14:56 Hampton8p.log
+drwx------ 2 c8088409 students 4096 Sep 19 09:02 OLA
+drwxr-xr-x 2 c8088409 students 4096 Aug 28 21:23 public_html
+drwx------ 3 c8088409 students 4096 Sep  5 15:15 unixstuff
+$ cat -ne[K exercise8p1.py
+     1	def main():
+     2	    x = int(input("Enter a nonnegative integer: "))
+     3	    b = 1
+     4	    c=1
+     5	    if(x > 0):
+     6	        for x in range(1, x+1):
+     7	            c=c*b
+     8	            b+=1
+     9	    else:
+    10	        print(x,"is not a nonnegative integer.")
+    11	    print(x, "factorial is ",c)
+    12	        
+    13	main()
+    14	        
+$ python3 exercise8p1.py
+Enter a nonnegative integer: 5
+5 factorial is  120
+$ python3 exercise8p1.py
+Enter a nonnegative integer: -1
+-1 is not a nonnegative integer.
+-1 factorial is  1
+$ cat-n[K[K -n e[Kcla5p8,.[K[K.py
+     1	def main():
+     2	    word = input("Enter a word.")
+     3	    length = int(input("Enter a number between 3 and 7."))
+     4	    print("")
+     5	    k=0
+     6	    v=0
+     7	    total=0
+     8	    if(length<3 or length>7):
+     9	        print("Your must enter a number between 3 and 7.")
+    10	        exit
+    11	    for i in range(length):
+    12	        print(word)
+    13	    print("")
+    14	    while(k <= length):
+    15	        print(k,end=" ")
+    16	        k += 1
+    17	    print("")
+    18	    print("")
+    19	    for i in range(length, 0, -1):
+    20	        print(i)
+    21	    print("")
+    22	    while(v < length):
+    23	        v += 1
+    24	        total=total+v
+    25	    print("The sum of 1 to", length,"is", total)
+    26	    
+    27	        
+    28	main()
+    29	    
+    30	    
+    31	                 
+$ c[Kpython3 cla5p8.py
+Enter a word.apple
+Enter a number between 3 and 7.4
+
+apple
+apple
+apple
+apple
+
+0 1 2 3 4 
+
+4
+3
+2
+1
+
+The sum of 1 to 4 is 10
+$ exit
+exit
+
+Script done on Thu 05 Oct 2017 03:00:21 PM CDT

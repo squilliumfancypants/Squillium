@@ -1,0 +1,113 @@
+Script started on Tue 10 Oct 2017 11:48:07 AM CDT
+$ cat -n HAmp[K[K[KamptonOLA3.o[Klog[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kola3sectoin[K[K[Kion5.l[Kpy
+     1	############################## OLA 3 ###########################################
+     2	# Program name: OLA3
+     3	# Date: 10/9/2017
+     4	# Class: CSCI 1170-005
+     5	# Purpose: This program calculates the shipping cost for the user.
+     6	################################################################################
+     7	
+     8	def main():
+     9	    
+    10	    #define shipping classes, and get user input weight
+    11	    
+    12	    toyweight = (float(input("Enter your toy's weight in lbs: "))+0.5)
+    13	    format(toyweight, "0.2")
+    14	    if toyweight < 1:
+    15	        s = 4.49
+    16	        e = 6.49
+    17	        
+    18	    else:     
+    19	        s = (4.49+(50/100)*(int(toyweight)))
+    20	        e = (((int(toyweight))*(99/100))+6.49)
+    21	        
+    22	    #define parameters for one day shipping calculations
+    23	    
+    24	    if(float(toyweight) > 0 and float(toyweight)-0.5 > 0 and float(toyweight)-0.5 <=1):
+    25	        
+    26	        #this statement defines eligibility for one day shipping.
+    27	        
+    28	        if(float(toyweight)-0.5 <= 1):
+    29	            selection1 = str(input("Your toy is eligible for one day shipping. Would you like to select one day shipping? Type Y/N. "))
+    30	            if selection1== "Y" or selection1=="y" or selection1=="yes" or selection1=="YES" or selection1=="Yes":
+    31	                print("Your shipping cost is $19.99. Your package will arrive within one day.")
+    32	            
+    33	            elif selection1=="No" or selection1=="no" or selection1=="n" or selection1=="N" or selection1=="nO":
+    34	                selection2 = str(input("Select one of the following shipping rates: standard, or expedited. Type s for standard shipping, or e for expedited shipping. "))
+    35	
+    36	                if selection2=="s" or selection2=="S":
+    37	                    print("Your shipping cost is $", format(s, "0.2f"), ". Your Package will arrive in 4 to 10 business days.")
+    38	                    
+    39	                elif selection2=="e" or selection2=="E":
+    40	                    print("Your shipping cost is $", format(e, "0.2f"), ". Your Package will arrive in 2 to 6 business days.")
+    41	                    
+    42	                else:
+    43	                    print("INVALID CODE:", selection2,"Terminating")
+    44	                    exit
+    45	            else:
+    46	                print("INVALID CODE. Terminating.")
+    47	     
+    48	    #define parameters for expedited and standard shipping calculations
+    49	                
+    50	    elif(toyweight-0.5 >= 1):
+    51	        selection3 = str(input("Select from the following rates: standard, or expedited. Type s for standard, or e for expedited. "))
+    52	        if selection3=="s" or selection3=="S":
+    53	            print("Your shipping cost is $", format(s, "0.2f"), ". Your Package will arrive in 4 to 10 business days.")
+    54	        elif selection3=="e" or selection3=="E":
+    55	            print("Your shipping cost is $", format(e, "0.2f"), ". Your Package will arrive in 2 to 6 business days.")
+    56	        else:
+    57	            print("INVALID CODE:",selection3, " Terminating.")
+    58	            exit
+    59	            
+    60	    #this statement alerts the user that they have entered an invalid value for their toy weight
+    61	            
+    62	    else:
+    63	        print("Your toy's weight must be greater than 0 lbs. Terminating.")
+    64	        exit
+    65	main()    
+    66	                  
+$ python3 ola3sectoin[K[K[Kion5.py
+Enter your toy's weight in lbs: 1
+Your toy is eligible for one day shipping. Would you like to select one day shipping? Type Y/N. Y
+Your shipping cost is $19.99. Your package will arrive within one day.
+$ python3.[K p[Kola3section5.py
+Enter your toy's weight in lbs: 0.5
+Your toy is eligible for one day shipping. Would you like to select one day shipping? Type Y/N. n
+Select one of the following shipping rates: standard, or expedited. Type s for standard shipping, or e for expedited shipping. s
+Your shipping cost is $ 4.99 . Your Package will arrive in 4 to 10 business days.
+$ 0[Kpython3 ola3section5.py
+Enter your toy's weight in lbs: 0.4
+Your toy is eligible for one day shipping. Would you like to select one day shipping? Type Y/N. n
+Select one of the following shipping rates: standard, or expedited. Type s for standard shipping, or e for expedited shipping. E
+Your shipping cost is $ 6.49 . Your Package will arrive in 2 to 6 business days.
+$ python3 ola3.[Ksectoin[K[K[Kion5.py
+Enter your toy's weight in lbs: 1.2
+Select from the following rates: standard, or expedited. Type s for standard, or e for expedited. E
+Your shipping cost is $ 7.48 . Your Package will arrive in 2 to 6 business days.
+$ python3 ola3section5.py
+Enter your toy's weight in lbs: 77 7 .777
+Select from the following rates: standard, or expedited. Type s for standard, or e for expedited. E
+Your shipping cost is $ 14.41 . Your Package will arrive in 2 to 6 business days.
+$ python3 ola3section5.py
+Enter your toy's weight in lbs: 2.9
+Select from the following rates: standard, or expedited. Type s for standard, or e for expedited. S
+Your shipping cost is $ 5.99 . Your Package will arrive in 4 to 10 business days.
+$ python3 ola3sectoin[K[K[Kion.py
+python3: can't open file 'ola3section.py': [Errno 2] No such file or directory
+$ python3 ola3sectoin[K[K[Kion.[K5.py
+Enter your toy's weight in lbs: 7.777
+Select from the following rates: standard, or expedited. Type s for standard, or e for expedited. s
+Your shipping cost is $ 8.49 . Your Package will arrive in 4 to 10 business days.
+$ python3 ola3section5.py
+Enter your toy's weight in lbs: 0
+Your toy's weight must be greater than 0 lbs. Terminating.
+$ python3 ola3 section5.py
+python3: can't open file 'ola3': [Errno 2] No such file or directory
+$ python3 ola3section5.puy[K[Ky
+Enter your toy's weight in lbs: 5
+Select from the following rates: standard, or expedited. Type s for standard, or e for expedited. X
+INVALID CODE: X  Terminating.
+$ exit
+exit
+
+Script done on Tue 10 Oct 2017 11:54:21 AM CDT

@@ -1,0 +1,10 @@
+print("This program computes the average of three scores")
+test1 = int( input("Enter the first test score:  "))
+print("You entered  ",test1)
+test2 = int(input("Enter the second score:  "))
+print("You entered  ",test2)
+test3 = int(input("Enter the third score:  "))
+print("You entered  ",test3)
+average = (test1 + test2 + test3)/3
+print("The average of the three score is:  ",average)
+pint("")
