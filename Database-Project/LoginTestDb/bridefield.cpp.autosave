@@ -1,0 +1,88 @@
+#include "bridefield.h"
+#include "ui_bridefield.h"
+#include <QSqlQuery>
+#include <QString>
+#include <QMessageBox>
+#include <QDebug>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QDialog>
+
+BrideField::BrideField(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::BrideField)
+{
+    ui->setupUi(this);
+}
+
+BrideField::~BrideField()
+{
+    delete ui;
+}
+
+void BrideField::on_buttonBox_accepted()
+{
+    /*
+     * --------------------------------- Bride and Groom db format -----------------------------------
+     *
+     * id, first_name VARCHAR, last_name VARCHAR, birthdate DATE (YYYY-MM-DD), username VARCHAR, password VARCHAR, email VARCHAR, phone INT,
+     * hiv_status ENUM('positive', 'negative'), mother VARCHAR, father VARCHAR,  role INT
+     *
+     * --------------------------------- Wedding db format---------------------------------------------
+     *
+     *id, date DATE, bride INT, groom INT, official INT
+     *
+     * ----------------------------- Bride and Groom Parents db format --------------------------------
+     *
+     * id , first_name VARCHAR, last_name VARCHAR, birthdate DATE
+    */
+
+
+    QSqlQuery qry;
+    QString sQry = "INSERT INTO bride (first_name, last_name, birthdate, username, password, email, phone)"
+                   " VALUES(:first_name, :last_name, :birthdate, :username, :password, :email, :phone )";
+
+    QString first_name, last_name, birthdate, username, password, email, hiv_status;
+    int phone, role;
+
+    //these go in a different table
+    QString mother, father;
+
+    //capture data from the fields
+    first_name = ui->fieldFirstName->text();
+    last_name = ui->fieldLastName->text();
+    birthdate = ui->fieldDOB->text();
+    username = ui->fieldUserName->text();
+    password = ui->fieldUserName->text();
+    email = ui->fieldEmail->text();
+
+    //prepare the query with the string
+    qry.prepare(sQry);
+
+    //bind captured data to the query
+    qry.bindValue(":first_name", first_name);
+    qry.bindValue(":last_name", last_name);
+    qry.bindValue(":birthdate", birthdate);
+    qry.bindValue(":userName", username);
+    qry.bindValue(":password", password);
+    qry.bindValue(":email", email);
+
+    //execute the query
+    if(qry.exec()){
+        QMessageBox::information(this,"Connection Status", "Successfully Connected");
+    }
+
+    else{
+        QMessageBox::critical(this,"Connection Status", qry.lastError().text());
+    }
+
+    accept();
+
+
+}
+
+void BrideField::on_buttonBox_rejected()
+{
+    close();
+}
+

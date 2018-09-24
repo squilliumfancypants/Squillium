@@ -1,0 +1,13 @@
+CREATE TABLE administrators(
+id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT, 
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
+birthdate DATE NOT NULL,
+username VARCHAR(30) NOT NULL,
+password VARCHAR(30) NOT NULL,
+email VARCHAR(40) DEFAULT NULL,
+phone VARCHAR(12) NOT NULL,
+role INT NOT NULL DEFAULT 1,
+UNIQUE(username),
+Primary Key(id)
+);

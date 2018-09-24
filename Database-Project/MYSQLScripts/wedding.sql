@@ -1,0 +1,9 @@
+CREATE TABLE wedding(
+id MEDIUMINT NOT NULL AUTO_INCREMENT,
+date DATE NOT NULL,
+bride INT NULL, 
+groom INT NULL,
+official INT NULL,
+UNIQUE(id),
+PRIMARY KEY(id)
+);
