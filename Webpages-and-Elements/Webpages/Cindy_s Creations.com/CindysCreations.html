@@ -1,0 +1,161 @@
+<!Doctype html>
+<html>
+  <head>
+  <h1 align="center"><span style="color:white">Cindy's Creations</span></h1>
+  <title style="color:purple">C.C.</title>
+  <audio id="my_audio" src="CCdadclip.m4a">
+  </audio>
+  <script type="text/javascript">
+    window.onload = function(){
+      document.getElementById("my_audio").play();
+    }
+  </script>
+  <style>
+    *{box-sizing:border-box;}
+    body{
+      background-image: url(purple_flowers_background.jpg);
+    }
+    #wdtt,#wdcm{
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .white{
+      color:white;
+    }
+    #p1{
+      display:block;
+      color:white;
+      width:10px;
+      height:10px;
+    }
+    a:link{
+      color:white;
+      background-color:transparent;
+      text-decoration:none;
+    }
+    a:visited{
+      color:pink;
+      background-color:transparent;
+      text-decoration:none;
+    }
+    a:hover{
+      color:red;
+      background-color:transparent;
+      text-decoration:none;
+    }
+    .mySlides1, .mySlides2 {display: none}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a grey background color */
+    .prev:hover, .next:hover {
+      background-color: #f1f1f1;
+      color: black;
+    }
+  </style>
+  </head>
+    <body>
+      <p class="white" align="center"><span style="font-size:30px">Here are some examples of custom clothes your children can wear!</span><br/></p>
+      <div class="slideshow-container">
+        <div class="mySlides1">
+          <img src="images/childrens_summer.jpg" style="width:100%">
+        </div>
+        <div class="mySlides1">
+          <img src="images/kids-fashion-FI.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides1">
+          <img src="images/Asian_kids_clothes.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+      </div>
+        <p align="center">
+          <img src="images/IMG_2447.png" width ="300px" align="center"><br/>
+        </p>
+        <h2 align="center" style="font-size:40px">Custom Designs</h2><hr width=200px align="center"/>
+        <p class="white" align="center"><span style="color:white;font-size:30px">I can make many custom design for your little one.</span>
+        <br/><span style="color:white;font-size:30px"> Here are the guidelines:</span></p>
+        <p class="white" align="center"><span style="color:white;font-size:30px">1. I can only make clothes for creatures 4 feet tall and under</span></p>
+        <p align="left">
+        <img id="wdcm" src="images/weiner dog check mark.jpg" height="250px" border="3px">
+        </p>
+        <p align="left">
+        <img id="wdtt" src="images/weiner dog too tall.jpg" align="center" height=500px border="3px">
+        </p><br/>
+        
+        <table border="5" width="500px" height="150px" align="center" style="border-color:dodgerblue;background-color:black;">
+          <tr><td class="white" colspan="3" align="center">Available Products</td></tr>
+          <tr>
+            <td class="white">Product</td><td class="white">Est. Arrival</td> <td class="white">Price</td>
+          </tr>
+          <tr>
+            <td><a href="images/childshirt.jpg" target=_blank>Child's Shirt</a></td>   <td class="white">1 week</td><td class="white">$39.99</td>
+          <tr>
+            <td><a href="images/childpant.jpg" target=_blank>Child's Pants</a></td>   <td class="white">1.5 weeks</td><td class="white">$49.99</td>
+          </tr>
+        </table><br/>
+        <a href="https://www.paypal.com/us/webapps/mpp/home" target=_blank><p align="center" style="font-size:20px">Click Here to Buy</p></a>
+        <!--This section contains a php script and a video, and is commented out
+        <script type="text/php">
+        <?php
+          echo"Hello World";
+        ?>
+        </script>
+          <video height="300px" width="300px" controls align="center">
+            <source src="sexysax.mp4" type="video/mp4">
+          </video>
+          -->
+        <script>
+          var slideIndex = [1,1];
+          var slideId = ["mySlides1", "mySlides2"]
+          showSlides(1, 0);
+          showSlides(1, 1);
+          
+          function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
+          }
+          
+          function showSlides(n, no) {
+            var i;
+            var x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) {slideIndex[no] = 1}
+            if (n < 1) {slideIndex[no] = x.length}
+            for (i = 0; i < x.length; i++) {
+               x[i].style.display = "none";
+            }
+            x[slideIndex[no]-1].style.display = "block";
+          }
+        </script>
+    </body>
+</html>

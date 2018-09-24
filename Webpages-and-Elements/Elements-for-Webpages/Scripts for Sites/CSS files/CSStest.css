@@ -1,0 +1,16 @@
+/*set the h1 element color to purple, and the font
+size to 100px*/
+
+h1{
+  color:purple;
+  font-size:100px;
+}
+
+/*set the text-alignment of both the h2 element,
+and the paragraph element of class=center, to
+center, and the color to red */
+
+h2,p.center{
+  text-align:center;
+  color:red;
+}
